@@ -5,7 +5,7 @@ import {
   QuantityText,
   Wrapper,
   MinusButton,
-  Qlabel,
+  QuantityLabel,
 } from "./Quantity.styled";
 
 import { ShopContext } from "../Context/useContext";
@@ -13,27 +13,27 @@ import { ShopContext } from "../Context/useContext";
 export const Quantity = ({ name, imageUrl, price, quantity }: Product) => {
   const { updateCart } = useContext(ShopContext);
 
-  const [qntty, setQuantity] = useState(quantity);
+  const [qty, setQuantity] = useState(quantity);
 
   useEffect(() => {
-    updateCart({ name, imageUrl, price }, qntty);
-  }, [qntty]);
+    updateCart({ name, imageUrl, price }, qty);
+  }, [qty]);
 
   const handleAdd = () => {
     setQuantity(quantity + 1);
   };
 
   const handleSub = () => {
-    if (qntty > 1) {
+    if (qty > 1) {
       setQuantity(quantity - 1);
     }
   };
 
   return (
     <>
-      <Qlabel>
+      <QuantityLabel>
         <p>QUANTITY:</p>
-      </Qlabel>
+      </QuantityLabel>
       <Wrapper>
         <MinusButton onClick={handleSub}>
           <p>-</p>

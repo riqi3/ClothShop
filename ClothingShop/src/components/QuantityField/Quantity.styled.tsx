@@ -74,7 +74,7 @@ export const AddButton = styled.div`
   }
 `;
 
-export const Qlabel = styled.div`
+export const QuantityLabel = styled.div`
   position: relative;
   display: flex;
   justify-content: left;

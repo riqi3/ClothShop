@@ -8,9 +8,6 @@ import { Quantity } from "../QuantityField";
 export const Cart = () => {
   const { products, total } = useContext(ShopContext);
 
-
-
-
   return (
     <>
       <Title>Your cart total is ${total}.00</Title>
