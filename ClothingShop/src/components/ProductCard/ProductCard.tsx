@@ -5,70 +5,73 @@ import {
   TextContainer,
   Title,
   Wrapper,
-} from './ProductCard.styled';
+} from "./ProductCard.styled";
 
-import { Product } from '../../models';
-import { useState, useEffect, useContext } from 'react';
-import { ShopContext} from '../Context/useContext';
-import {FaHeart, FaRegHeart, FaCartPlus, FaShoppingCart} from 'react-icons/fa';
+import { Product } from "../../models";
+import { useState, useEffect, useContext } from "react";
+import { ShopContext } from "../Context/useContext";
+import {
+  FaHeart,
+  FaRegHeart,
+  FaCartPlus,
+  FaShoppingCart,
+} from "react-icons/fa";
 
-export const ProductCard = ({ name, imageUrl, price,quantity }: Product) => {
-  const {products, saved,removeItem,addToCart,removeToWL,addToWL} = useContext(ShopContext);
+export const ProductCard = ({ name, imageUrl, price, quantity }: Product) => {
+  const { products, saved, removeItem, addToCart, removeToWL, addToWL } =
+    useContext(ShopContext);
   const [isInCart, setIsInCart] = useState(false);
   const [isInWish, setIsInWish] = useState(false);
-  
+
   useEffect(() => {
-    const cartItems = products.find((product: { name: string; }) => product.name === name);
-    const wishItems = saved.find((product: { name: string; }) => product.name === name);
+    const cartItems = products.find(
+      (product: { name: string }) => product.name === name
+    );
+    const wishItems = saved.find(
+      (product: { name: string }) => product.name === name
+    );
 
     if (cartItems && wishItems) {
       setIsInCart(true);
       setIsInWish(true);
-    }else if(!cartItems && wishItems){
+    } else if (!cartItems && wishItems) {
       setIsInCart(false);
       setIsInWish(true);
-    }else if(cartItems && !wishItems){
+    } else if (cartItems && !wishItems) {
       setIsInCart(true);
       setIsInWish(false);
-    }else {
+    } else {
       setIsInCart(false);
       setIsInWish(false);
     }
-  }, [products, saved,name]);
-  
+  }, [products, saved, name]);
+
   const handleCart = () => {
-    const product = {name, imageUrl, price, quantity};
-    if(isInCart){
+    const product = { name, imageUrl, price, quantity };
+    if (isInCart) {
       removeItem(product);
-     
-    } else{
+    } else {
       addToCart(product);
-      
     }
-  }
+  };
 
   const handleWish = () => {
-    const product = {name, imageUrl, price, quantity};
-    if(isInWish){
+    const product = { name, imageUrl, price, quantity };
+    if (isInWish) {
       removeToWL(product);
-    
-    } else{
+    } else {
       addToWL(product);
-     
     }
-  }
-
-
-
+  };
 
   return (
     <Wrapper background={imageUrl}>
       <AddButton isInWish={isInWish} onClick={handleWish}>
-        <p>{isInWish? <FaHeart/> : <FaRegHeart/>}</p>
+        <p>{isInWish ? <FaHeart /> : <FaRegHeart />}</p>
       </AddButton>
 
       <AddButtonProps2 isInCart={isInCart} onClick={handleCart}>
-        <p>{isInCart?  <FaCartPlus/> : <FaShoppingCart  />}</p>
+        <p>{isInCart ? <FaShoppingCart /> : <FaCartPlus />}</p>
       </AddButtonProps2>
       <TextContainer>
         <Title>{name}</Title>
@@ -77,5 +80,3 @@ export const ProductCard = ({ name, imageUrl, price,quantity }: Product) => {
     </Wrapper>
   );
 };
-
-

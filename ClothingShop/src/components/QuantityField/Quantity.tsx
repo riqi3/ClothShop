@@ -5,7 +5,7 @@ import {
   QuantityText,
   Wrapper,
   MinusButton,
-  Qlabel
+  Qlabel,
 } from "./Quantity.styled";
 
 import { ShopContext } from "../Context/useContext";
@@ -31,22 +31,20 @@ export const Quantity = ({ name, imageUrl, price, quantity }: Product) => {
 
   return (
     <>
-    <Qlabel>
-        <p>
-            QUANTITY:
-        </p>
-    </Qlabel>
-    <Wrapper>
-      <MinusButton onClick={handleSub}>
-        <p>-</p>
-      </MinusButton>
-      <QuantityText>
-        <p>{quantity}</p>
-      </QuantityText>
-      <AddButton onClick={handleAdd}>
-        <p>+</p>
-      </AddButton>
-    </Wrapper>
+      <Qlabel>
+        <p>QUANTITY:</p>
+      </Qlabel>
+      <Wrapper>
+        <MinusButton onClick={handleSub}>
+          <p>-</p>
+        </MinusButton>
+        <QuantityText>
+          <p>{quantity}</p>
+        </QuantityText>
+        <AddButton onClick={handleAdd}>
+          <p>+</p>
+        </AddButton>
+      </Wrapper>
     </>
   );
 };

@@ -1,20 +1,16 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Title = styled.p`
   font-weight: bold;
   font-size: 20px;
   margin-top: 20px;
-  margin-bottom:  0;
+  margin-bottom: 0;
 `;
-
-
 
 export const ProductsWrapper = styled.div`
   display: block;
   width: fit-content;
- 
 `;
-
 
 export const Total = styled.div`
   display: flexbox;
@@ -22,7 +18,7 @@ export const Total = styled.div`
   align-items: center;
   width: 100%;
   height: 120px;
-  
+
   overflow: hidden;
   position: relative;
   margin-top: 10px;
@@ -32,7 +28,6 @@ export const Labels = styled.div`
   display: block;
   gap: 10px;
   width: 225px;
-  
 `;
 
 export const TotalAmountLabel = styled.p`
@@ -53,13 +48,11 @@ export const TotalItemsLabel = styled.p`
   margin: 0;
 `;
 
-
 export const PriceContainer = styled.div`
   display: block;
   align-items: flex-end;
   gap: 10px;
   width: 225px;
-  
 `;
 
 export const TotalAmount = styled.p`
@@ -75,7 +68,7 @@ export const TotalAmount = styled.p`
 `;
 
 export const TotalItems = styled.p`
-text-align: end;
+  text-align: end;
   font-weight: normal;
   font-size: 15px;
   color: #000;
@@ -93,6 +86,6 @@ export const PlaceOrder = styled.div`
   overflow: hidden;
   position: relative;
   margin-top: 20px;
-  color : white;
-  background-color: #965b3f ;
+  color: white;
+  background-color: #965b3f;
 `;
