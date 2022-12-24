@@ -11,7 +11,6 @@ export type ShopState = {
     removeToWL:any,
     updatePrice: any,
     updateCart: any,
-   
 }
 
 export const initialState = {

@@ -1,4 +1,4 @@
-import { ShopAction, ShopActionType } from './action';
+import { ShopAction, ShopActionType } from "./action";
 import { ShopState } from "./state";
 
 export const shopReducer = (state: ShopState, action: ShopAction) => {
@@ -17,35 +17,32 @@ export const shopReducer = (state: ShopState, action: ShopAction) => {
     case ShopActionType.UPDATE:
       return {
         ...state,
-        total:  action.payload,
+        total: action.payload,
       };
 
-      case ShopActionType.SAVED:
-        return {
-          ...state,
-          saved: action.payload,
-        };
-        case ShopActionType.ERASE:
-          return {
-            ...state,
-            saved: action.payload,
-          };
+    case ShopActionType.SAVED:
+      return {
+        ...state,
+        saved: action.payload,
+      };
+    case ShopActionType.ERASE:
+      return {
+        ...state,
+        saved: action.payload,
+      };
 
-          case ShopActionType.UPDATETOT:
-            return {
-              ...state,
-              products: action.payload,
-            };
-            case ShopActionType.UPDATEITEMS:
-            return {
-              ...state,
-              totalitems: action.payload,
-            };
-            
-            
-           
+    case ShopActionType.UPDATETOT:
+      return {
+        ...state,
+        products: action.payload,
+      };
+    case ShopActionType.UPDATEITEMS:
+      return {
+        ...state,
+        totalitems: action.payload,
+      };
+
     default:
       return state;
   }
 };
-
